@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IPost } from '../interfaces';
 import { PostService } from '../services';
 
@@ -11,9 +11,19 @@ import { PostService } from '../services';
 export class BlogComponent implements OnInit {
   public posts: IPost[] = [];
 
-  public post = new FormControl('', []);
+  public form: FormGroup;
 
-  constructor(private _postService: PostService) {}
+  constructor(private _postService: PostService, private _formBuilder: FormBuilder) {
+    this.form = this._formBuilder.group({
+      id: ['', [Validators.required, Validators.minLength(2)]],
+      title: ['', []],
+      body: ['', []]
+    })
+  }
+
+  get getId() {
+    return this.form.get('id')
+  }
 
   ngOnInit(): void {
     this._postService

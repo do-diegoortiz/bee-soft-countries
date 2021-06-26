@@ -1,5 +1,11 @@
-<input>
-
+<form [formGroup]="form">
+  <input type="text" name="id" formControlName="id">
+  <span *ngIf="getId?.hasError('required')">Este campo es requerido</span>
+  <input type="text" name="title" formControlName="title">
+  <input type="text" name="body" formControlName="body">
+</form>
+<pre>{{form.value | json}}</pre>
+<br>
 
 <div *ngFor="let post of posts" [ngStyle]="{'display': 'flex'}">
   <span>{{post.id}}</span>

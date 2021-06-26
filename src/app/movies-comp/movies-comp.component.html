@@ -1,16 +1,22 @@
 <form name="newMovieForm" #newMovieForm="ngForm" (ngSubmit)="saveMovie()">
+  <div class="grid grid-cols-6 gap-6">
+    <div class="col-span-6 sm:col-span-3">
     <label for="name">Name</label>
     <input name="name" type="text"
      placeholder="Enter your name" [(ngModel)]="newMovie.name">
+    </div>
 
+    <div class="grid grid-cols-6 gap-6">
     <label for="genres">Genres</label>
       <label for="rock">Rock</label>
-      <input [(ngModel)]="newMovie.genres" type="checkbox" name="genre[]" value="rock">
+      <input type="checkbox" [checked]="newMovie.genres.includes('rock')" name="genre" value="rock" (click)="addGenre('rock')">
 
       <label for="salsa">Salsa</label>
-      <input [(ngModel)]="newMovie.genres" type="checkbox" name="genre[]" value="salsa" />
+      <input  type="checkbox" name="genre" value="salsa" [checked]="newMovie.genres.includes('salsa')" (click)="addGenre('salsa')" />
+</div>
 
     <button>Salvar</button>
+</div>
 </form>
 
 <ul>

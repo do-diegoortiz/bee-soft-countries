@@ -19,8 +19,17 @@ export class MoviesCompComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  addGenre(genre: string): void {
+    if(this.newMovie.genres.includes(genre)) {
+      this.newMovie.genres = this.newMovie.genres.filter(movie => movie !== genre);
+    }else {
+      this.newMovie.genres.push(genre);
+    }
+  }
+
   saveMovie(): void {
     const copy = {...this.newMovie}
-this.movies.push(copy)
+    this.movies.push(copy)
   }
 }
