@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ICountry } from '../interafaces';
+import { ICountry } from '../interfaces';
 import { CountryService } from '../services';
 
 @Component({
@@ -10,14 +10,25 @@ import { CountryService } from '../services';
 export class CountryComponent implements OnInit {
   public countries: ICountry[] = []
 
+  myCountry: ICountry = {
+    name: '',
+    capital: '',
+    forKids: ''
+  }
+
   constructor(private readonly _countriesService: CountryService) { }
 
   ngOnInit(): void {
-    // this.countries = this._countriesService.getCountries();
     this._countriesService.getCountries().subscribe(data => {
       if (data) {
         this.countries = data.slice(0, 20)
       }
     });
+  }
+
+  public enviar(): void {
+    console.log(this.myCountry)
+    const copy = {...this.myCountry}
+    this.countries.push(copy)
   }
 }

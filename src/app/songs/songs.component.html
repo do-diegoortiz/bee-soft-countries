@@ -1,0 +1,28 @@
+<form #form="ngForm" class="" (ngSubmit)="enviar()">
+    <input type="text" name="song-name" [(ngModel)]="newSong.name">
+    <input type="text" name="artist-name" [(ngModel)]="newSong.artist">
+    <div>
+      <label for="genre">Kids</label>
+        <input
+          [(ngModel)]="newSong.forKids"
+          type="radio" name="musical-genre" value="true">
+
+    </div>
+    <div>
+      <label for="genre">Not4kids</label>
+        <input
+          [(ngModel)]="newSong.forKids"
+          type="radio" value="false" name="musical-genre">
+    </div>
+    <button>Enviar</button>
+</form>
+
+<pre>{{ newSong | json }}</pre>
+
+<ul>
+  <li *ngFor="let song of songs">
+    {{song.name}} {{song.artist}} {{song.forKids}}
+  </li>
+</ul>
+<>
+

@@ -7,18 +7,27 @@ import { AppComponent } from './app.component';
 import { CountryComponent } from './country/country.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MoviesCompComponent } from './movies-comp/movies-comp.component';
+import { CartoonsComponent } from './cartoons/cartoons.component';
+import { SongsComponent } from './songs/songs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CountryComponent,
     HomeComponent,
-    BlogComponent
+    BlogComponent,
+    MoviesCompComponent,
+    CartoonsComponent,
+    SongsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

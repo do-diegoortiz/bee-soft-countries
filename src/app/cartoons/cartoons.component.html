@@ -1,0 +1,23 @@
+<form #form="ngForm" (submit)="enviar()">
+  <label>Selecciona un cartoon</label>
+  <select name="cartoons" [(ngModel)]="cartoon.monacho">
+      <option value="">Seleccion</option>
+      <option>Superman</option>
+      <option>Batman</option>
+      <option>Spiderman</option>
+  </select>
+  <input name="habilidad" type="text" [(ngModel)]="cartoon.habilidad">Habilidad
+  <input name="debilidad" type="text" [(ngModel)]="cartoon.debilidad">Debilidades
+  <button>Enviar</button>
+</form>
+
+<ul>
+  <li *ngFor="let cartoon of cartoons">
+    {{cartoon.habilidad}}
+    {{cartoon.debilidad}}
+    {{cartoon.monacho}}
+  </li>
+</ul>
+
+
+

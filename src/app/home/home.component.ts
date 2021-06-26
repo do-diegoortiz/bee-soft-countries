@@ -13,8 +13,8 @@ export class HomeComponent implements OnInit {
   }
 
   public queryParams(): void {
+    this.router.navigate(['countries'])
     // this.router.navigate(['countries'], { queryParams: { name: 'colombia' } })
-    this.router.navigate(['countries'], { queryParams: { city: 'medellin', currency: 'COP' } })
   }
 
   public iniciarSesion(): void {

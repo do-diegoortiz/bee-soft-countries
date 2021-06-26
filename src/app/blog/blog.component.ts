@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IPost } from '../interafaces';
+import { FormControl } from '@angular/forms';
+import { IPost } from '../interfaces';
 import { PostService } from '../services';
 
 @Component({
@@ -9,6 +10,8 @@ import { PostService } from '../services';
 })
 export class BlogComponent implements OnInit {
   public posts: IPost[] = [];
+
+  public post = new FormControl('', []);
 
   constructor(private _postService: PostService) {}
 
